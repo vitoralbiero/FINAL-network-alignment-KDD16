@@ -10,7 +10,8 @@ noisy_edge_label = {};
 
 %% Uniform similarity matrix.
 %H = ones(size(noisy, 1), size(net1, 1)) / (size(noisy, 1) + size(net1, 1));
-%H = zeros(size(noisy, 1), size(net1, 1));
+H = zeros(size(noisy, 1), size(net1, 1));
+
 
 %% run net1 vs noisy
 alpha = 0.3; maxiter = 30; tol = 1e-4;
@@ -34,5 +35,4 @@ ground_truth = table2array(readtable(ground_truth_path));
 M = greedy_match(S);
 [row, col] = find(M);
 acc = size(intersect([col row], ground_truth, 'rows'), 1)/size(ground_truth, 1)
-
 exit;
