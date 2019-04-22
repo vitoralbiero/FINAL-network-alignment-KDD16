@@ -15,7 +15,8 @@ S = FINAL(krogan, noisy, krogan_node_label, noisy_node_label, krogan_edge_label,
 
 %% Saves the matrix:
 csvwrite('krogan_vs_yeast+5rw_0.csv', S)
-    
-M = greedy_match(S);
-[row, col] = find(M);
-acc = size(intersect([col row], gndtruth, 'rows'), 1)/size(gndtruth, 1);
+
+%% commented out due to missing ground truth atm, or idk what it is.
+%% M = greedy_match(S);
+%% [row, col] = find(M);
+%% acc = size(intersect([col row], ground_truth, 'rows'), 1)/size(groun_truth, 1);
