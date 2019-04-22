@@ -31,4 +31,3 @@ M = greedy_match(S);
 acc = size(intersect([col row], ground_truth, 'rows'), 1)/size(ground_truth, 1)
 
 exit;
-end;
