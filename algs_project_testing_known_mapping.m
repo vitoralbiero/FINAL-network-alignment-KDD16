@@ -7,7 +7,7 @@ noisy_node_label = [];
 noisy_edge_label = {}; 
 
 %% Uniform similarity matrix.
-H = ones(size(noisy)[0], size(krogan)[0]) / (size(noisy)[0] + size(krogan)[0])
+H = ones(size(noisy, 1), size(krogan, 1)) / (size(noisy, 1) + size(krogan, 1))
 
 %% run krogan-noisy
 alpha = 0.3; maxiter = 30; tol = 1e-4;
