@@ -1,4 +1,4 @@
-function final_pair(netpath1, netpath2, ground_truth_path)
+function known_mapping_test(netpath1, netpath2, ground_truth_path)
 
 net1 = table2array(readtable(netpath1));
 net1_node_label =[];
