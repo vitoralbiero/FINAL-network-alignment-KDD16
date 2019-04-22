@@ -1,8 +1,8 @@
-krogan = readtable('krogan_2007_adj_mat.csv');
+krogan = readtable('../krogan_2007_adj_mat.csv');
 krogan_node_label =[];
 krogan_edge_label = {};
 
-noisy = readtable('yeast+5rw_0.csv');
+noisy = readtable('../yeast+5rw_0.csv');
 noisy_node_label = []; 
 noisy_edge_label = {}; 
 
