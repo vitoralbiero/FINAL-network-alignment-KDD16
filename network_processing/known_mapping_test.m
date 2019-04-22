@@ -19,7 +19,7 @@ S = FINAL(net1, noisy, net1_node_label, noisy_node_label, net1_edge_label, noisy
 netpath1_substr = strsplit(netpath1, '.')
 netpath1_substr = netpath1_substr{size(netpath1_substr,2)-1}
 
-netpath2_substr = substring(netpath1, 1..(strlength(netpath1)-4))
+netpath2_substr = strsplit(netpath2, '.')
 netpath2_substr = netpath2_substr{size(netpath2_substr,2)-1}
 
 csvwrite(strcat(netpath1_substr, '_vs_', netpath2_substr, '.csv'), S);
