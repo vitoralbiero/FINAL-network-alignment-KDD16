@@ -9,7 +9,8 @@ noisy_node_label = [];
 noisy_edge_label = {}; 
 
 %% Uniform similarity matrix.
-H = ones(size(noisy, 1), size(net1, 1)) / (size(noisy, 1) + size(net1, 1));
+%H = ones(size(noisy, 1), size(net1, 1)) / (size(noisy, 1) + size(net1, 1));
+%H = zeros(size(noisy, 1), size(net1, 1));
 
 %% run net1 vs noisy
 alpha = 0.3; maxiter = 30; tol = 1e-4;
