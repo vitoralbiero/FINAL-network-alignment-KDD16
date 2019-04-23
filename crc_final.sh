@@ -4,6 +4,6 @@
 #$ -q long             # Specify queue (use ‘debug’ for development)
 #$ -N test_final         # Specify job name
 
-module add matlab
+module load matlab
 
-bash exp_final.sh 
+bash exp_final.sh
