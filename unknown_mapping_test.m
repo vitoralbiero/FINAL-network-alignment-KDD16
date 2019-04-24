@@ -9,7 +9,7 @@ net2_node_label = [];
 net2_edge_label = {}; 
 
 %% H matrix with uniform distribution
-H = ones(size(noisy, 1), size(net1, 1)) / (size(noisy, 1) * size(net1, 1));
+H = ones(size(net2, 1), size(net1, 1)) / (size(net2, 1) * size(net1, 1));
 
 %% run net1 vs net2
 alpha = 0.3; maxiter = 30; tol = 1e-4;
@@ -28,6 +28,9 @@ netpath2_substr = netpath2_substr{size(netpath2_substr,2)};
 
 csvwrite(strcat('../unknown_mapping_output/', netpath1_substr(1:length(netpath1_substr)-4),...
                 '_vs_', netpath2_substr(1:length(netpath2_substr)-4), '.csv'), S);
+
+M = greedy_match(S);
+[row, col] = find(M);
 
 %% Saves prediction (alignment)
 csvwrite(strcat('../unknown_mapping_output/', netpath1_substr(1:length(netpath1_substr)-4),...
