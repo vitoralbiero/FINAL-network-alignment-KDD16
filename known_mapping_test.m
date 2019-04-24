@@ -38,7 +38,7 @@ acc = size(intersect([col row], ground_truth, 'rows'), 1)/size(ground_truth, 1)
 
 %% Saves prediction (alignment) and accuracy
 csvwrite(strcat('../known_mapping_output/', netpath1_substr(1:length(netpath1_substr)-4),...
-                '_vs_', netpath2_substr(1:length(netpath2_substr)-4), '_alignment.csv'), [row, col]);
+                '_vs_', netpath2_substr(1:length(netpath2_substr)-4), '_alignment.csv'), [col, row]);
 csvwrite(strcat('../known_mapping_output/', netpath1_substr(1:length(netpath1_substr)-4),...
                 '_vs_', netpath2_substr(1:length(netpath2_substr)-4), '_acc.csv'), acc);
 
