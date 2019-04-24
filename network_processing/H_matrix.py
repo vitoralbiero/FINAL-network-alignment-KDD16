@@ -46,7 +46,7 @@ if __name__ == '__main__':
     H = np.reshape(H, (n2, n1))
 
     if args.ground_truth is not None:
-        H[ground_truth[:, 1] - 1, ground_truth[:, 0] - 1] = 1 # H_temp[ground_truth[:, 1] - 1, ground_truth[:, 0] - 1]
+        H[ground_truth[:, 1] - 1, ground_truth[:, 0] - 1] = H_temp[ground_truth[:, 1] - 1, ground_truth[:, 0] - 1]
 
     if args.output_file is None:
         args.output_file = './H.csv'
