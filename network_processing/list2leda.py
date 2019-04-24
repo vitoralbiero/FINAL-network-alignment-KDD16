@@ -11,7 +11,7 @@
 import sys
 
 if len(sys.argv) == 1:
-    print 'Run as: ./list2leda.py <input_file>'
+    print ('Run as: ./list2leda.py <input_file>')
     exit(0)
 
 inputFile = sys.argv[1]
@@ -26,13 +26,12 @@ fRead = open(inputFile, 'r')
 
 for line in fRead:
     splitted = line.strip().split(',')
-    print(splitted)
+    # print(splitted)
 
     if splitted[0] != splitted[1]:
         listOfInteractions.append((splitted[0], splitted[1]))
 
 fRead.close()
-
 
 nodeCount = 1
 for interaction in listOfInteractions:

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 N1="../krogan_2007_adj_mat_random.csv"
-GRN="../krogan_2007_random_ground_truth.csv"
+GRN="../krogan_2007_adj_mat_random_ground_truth.csv"
 
 # Note, spaces in the double quotes here breaks it. thanks matlab.
 for filename in ../yeast_rw/*.csv; do

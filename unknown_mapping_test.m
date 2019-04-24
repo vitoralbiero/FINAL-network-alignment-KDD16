@@ -34,6 +34,6 @@ M = greedy_match(S);
 
 %% Saves prediction (alignment)
 csvwrite(strcat('../unknown_mapping_output/', netpath1_substr(1:length(netpath1_substr)-4),...
-                '_vs_', netpath2_substr(1:length(netpath2_substr)-4), '_alignment.csv'), [row, col]);
+                '_vs_', netpath2_substr(1:length(netpath2_substr)-4), '_alignment.csv'), [col, row]);
 
 exit;
