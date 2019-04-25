@@ -18,11 +18,12 @@ if __name__ == '__main__':
 
     idx1 = np.linspace(0, len(edge_matrix) - 1, len(edge_matrix)).astype('int')
 
-    idx2 = np.linspace(0, len(edge_matrix) - 1, len(edge_matrix)).astype('int')
-    np.random.shuffle(idx2)
+    idx2 = np.linspace(len(edge_matrix) - 1, 0, len(edge_matrix)).astype('int')
+    # np.random.shuffle(idx2)
 
     edge_matrix_flipped = np.copy(edge_matrix)
-    edge_matrix_flipped = edge_matrix[idx2, :][:, idx2]
+    edge_matrix_flipped = np.flip(edge_matrix_flipped)
+    #edge_matrix_flipped = edge_matrix[idx2, :][:, idx2]
 
     ground_truth = np.transpose(np.array([idx1 + 1, idx2 + 1]))
 

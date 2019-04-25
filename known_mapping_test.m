@@ -26,7 +26,7 @@ netpath2_substr = netpath2_substr{size(netpath2_substr,2)-1};
 netpath2_substr = strsplit(netpath2, '/');
 netpath2_substr = netpath2_substr{size(netpath2_substr,2)};
 
-csvwrite(strcat('../known_mapping_output/', netpath1_substr(1:length(netpath1_substr)-4),...
+csvwrite(strcat('../known_mapping_output_mod/', netpath1_substr(1:length(netpath1_substr)-4),...
                 '_vs_', netpath2_substr(1:length(netpath2_substr)-4), '.csv'), S);
 
 %% Check ground truth accuracy
@@ -37,9 +37,9 @@ M = greedy_match(S);
 acc = size(intersect([col row], ground_truth, 'rows'), 1)/size(ground_truth, 1)
 
 %% Saves prediction (alignment) and accuracy
-csvwrite(strcat('../known_mapping_output/', netpath1_substr(1:length(netpath1_substr)-4),...
+csvwrite(strcat('../known_mapping_output_mod/', netpath1_substr(1:length(netpath1_substr)-4),...
                 '_vs_', netpath2_substr(1:length(netpath2_substr)-4), '_alignment.csv'), [col, row]);
-csvwrite(strcat('../known_mapping_output/', netpath1_substr(1:length(netpath1_substr)-4),...
+csvwrite(strcat('../known_mapping_output_mod/', netpath1_substr(1:length(netpath1_substr)-4),...
                 '_vs_', netpath2_substr(1:length(netpath2_substr)-4), '_acc.csv'), acc);
 
 exit;

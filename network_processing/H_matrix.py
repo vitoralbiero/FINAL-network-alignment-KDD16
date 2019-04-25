@@ -20,7 +20,8 @@ if __name__ == '__main__':
     edge_matrix1 = np.loadtxt(args.input_file1, delimiter=',', dtype=np.int)
     edge_matrix2 = np.loadtxt(args.input_file2, delimiter=',', dtype=np.int)
 
-    ground_truth = np.loadtxt(args.ground_truth, delimiter=',', dtype=np.int)
+    if args.ground_truth is not None:
+        ground_truth = np.loadtxt(args.ground_truth, delimiter=',', dtype=np.int)
 
     n1 = len(edge_matrix1)
     n2 = len(edge_matrix2)
@@ -33,7 +34,9 @@ if __name__ == '__main__':
     n1_max = np.max(degree1)
 
     for i in range(len(edge_matrix2)):
-        H[i, :] = abs(degree1 - degree2[i]) / max(degree2[i], n1_max)
+        # H[i, :] = (abs(degree1 - degree2[i]) / max(degree2[i], n1_max))
+        for j in range(len(edge_matrix1)):
+            H[i, j] = (min(degree1[j], degree2[i]) + 1) / (max(degree2[i], degree1[j]) + 1)
 
     idx = np.asarray(random.sample(
         list(np.linspace(0, (n2 * n1) - 1, n2 * n1)), round(0.9996 * (n2 * n1) - 1))).astype('int')
@@ -47,6 +50,8 @@ if __name__ == '__main__':
 
     if args.ground_truth is not None:
         H[ground_truth[:, 1] - 1, ground_truth[:, 0] - 1] = H_temp[ground_truth[:, 1] - 1, ground_truth[:, 0] - 1]
+    else:
+        H[H_temp == H_temp.max(axis=0, keepdims=1)] = H_temp[H_temp == H_temp.max(axis=0, keepdims=1)]
 
     if args.output_file is None:
         args.output_file = './H.csv'
